@@ -132,13 +132,13 @@ Infrastruktur Cloud Global AWS adalah platform cloud paling aman, luas, dan anda
                 konektivitas ke AWS Global Network. AWS Global Network menghubungkan 
                 semua AWS region, availability zone dan edge location dengan koneksi 
                 yang private, low-latency, dan redundant.
-![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/cebbac2b-07ff-4f6b-bfb5-f1dbfedd89a1)
 
 > Data Center >> Data Center adalah adalah lokasi fisik yang menyimpan mesin komputasi 
                  dan peralatan perangkat keras terkait. Ini berisi infrastruktur 
                  komputasi yang dibutuhkan sistem TI, seperti server, drive penyimpanan 
                  data, dan peralatan jaringan.
 
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/cebbac2b-07ff-4f6b-bfb5-f1dbfedd89a1)
 
 ## Knowledge
    ![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/05f9b03c-c4fb-42a2-8ff6-2396deed8693)
