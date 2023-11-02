@@ -1,5 +1,5 @@
 
-# CLOUD COMPUTING [DAY 1]
+# CLOUD COMPUTING [CHAPTER 1]
 
 ## Introduction
 Apa yang akan kita pelajari???
