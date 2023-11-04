@@ -29,7 +29,7 @@ We have provided a sample Day Journey entry staring at 0. You can delete this ex
 
 - [ ] ☁️ 1 > [AWS Cluod Foundation Chapter 1](Journey/001/Readme.md)
 - [ ] ☁️ 2 > [AWS Cluod Foundation Chapter 2,3](Journey/002/Readme.md)
-- [ ] ☁️ 3 > [](Journey/003/Readme.md)
+- [ ] ☁️ 3 > [Lab 1 : Introduction to AWS IAM](Journey/003/Readme.md)
 - [ ] ☁️ 4 > [](Journey/004/Readme.md)
 - [ ] ☁️ 5 > [](Journey/005/Readme.md)
 - [ ] ☁️ 6 > [](Journey/006/Readme.md)
