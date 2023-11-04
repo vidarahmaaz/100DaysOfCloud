@@ -1,5 +1,5 @@
 
-## Social Proof
+## Introduction to AWS IAM
 
 Berikut adalah lab tentang pengenalan AWS IAM
 
