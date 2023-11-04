@@ -1,3 +1,3 @@
 ## AWS IAM
 
-[Klik disini](https://docs.google.com/document/d/1FPfANdxsI1OfBKhaCALXMrYTM2Ds_j4CtyfFmTZkYSU/edit?usp=sharing)
+[klik link](https://docs.google.com/document/d/1FPfANdxsI1OfBKhaCALXMrYTM2Ds_j4CtyfFmTZkYSU/edit?usp=sharing)
