@@ -1,4 +1,4 @@
-### Keamanan AWS Cloud
+## Keamanan AWS Cloud
   Topik:
   - model tanggung jawab bersama AWS
   - AWS Identity and Access Management (IAM)
@@ -56,10 +56,109 @@
   - AWS Trusted Advisor adalah alat online yang menganalisis lingkungan AWS Anda dan 
     memberikan panduan real-time dan rekomendasi untuk membantu Anda menyediakan sumber 
     daya Anda dengan mengikuti praktik terbaik AWS
-  - AWS Shieldadalah layanan perlindungan distributed denial of service (DDoS) terkelola 
+  - AWS Shield adalah layanan perlindungan distributed denial of service (DDoS) terkelola 
     yang melindungi aplikasi yang berjalan di AWS. AWS Shield menyediakan deteksi yang 
     selalu aktif dan mitigasi inline otomatis
-  - Amazon Chimeadalah layanan komunikasi bagi Anda untuk rapat, mengobrol, dan telepon 
+  - Amazon Chime adalah layanan komunikasi bagi Anda untuk rapat, mengobrol, dan telepon 
     bisnis di dalam dan di luar organisasi Anda, semuanya dengan satu aplikasi.Ini adalah 
     layanan komunikasi bayar sesuai pemakaian tanpa biaya awal, komitmen, atau kontrak 
     jangka panjang
+
+### AWS Identity and Access Management (IAM)
+
+   AWS Identity and Access Management (IAM) memungkinkan Anda mengontrol akses ke komputasi, 
+   penyimpanan, basis data, dan layanan aplikasi di AWS Cloud. IAM dapat digunakan untuk menangani 
+   autentikasi, dan untuk menentukan dan menegakkan kebijakan otorisasi sehingga Anda dapat 
+   menentukan pengguna yang dapat mengakses layanan.
+   
+   IAM adalah alat yang secara terpusat mengelola akses untuk meluncurkan, mengonfigurasi, 
+   mengelola, dan mengakhiri sumber daya di akun AWS Anda. Ini memberikan kontrol detail atas 
+   akses ke sumber daya, termasuk kemampuan untuk   menentukan dengan tepat panggilan API mana 
+   yang diizinkan untuk dilakukan pengguna ke setiap layanan.
+
+   Dengan IAM, Anda dapat mengelola sumber daya yangdapat diakses oleh siapa, dan bagaimanasumber 
+   daya ini dapat diakses. Anda dapat memberikan izin yang berbeda kepada orang yang berbeda untuk 
+   sumber daya yang berbeda. IAM adalah fitur akun AWS yang ditawarkan tanpa biaya tambahan.
+
+ > IAM: Komponen Penting
+   - Pengguna IAM   :  Seseorang atau aplikasi yang dapat mengautentikasi dengan akun AWS
+   - Grup IAM       :  Koleksi pengguna IAM yang diberikan otorisasi identik
+   - Kebijakan IAM  :  Dokumen yang menentukan sumber daya mana yang dapat diakses dan tingkat 
+                       akses ke setiap sumber daya
+   - IAM role       :  Mekanisme yang berguna untuk memberikan satu set izin untuk membuat 
+                       permintaan layanan AWS
+
+> Autentikasi sebagai pengguna IAM untuk mendapatkan akses
+  - Akses Program
+    - Autentikasi menggunakan:
+      - access key ID
+      - secret access key
+    - Menyediakan akses AWS CLI dan AWS SDK
+
+  - Akses AWS Management Console
+    - Autentikasi menggunakan:
+      - 12-digit akun ID atau alias
+      - nama pengguna IAM
+      - kata sandi IAM
+   - jika diaktifkan, otentikasi multifaktor (MFA) meminta kode autentikasi
+
+> IAM MFA
+  - MFA memberikan peningkatan keamanan
+  - selain nama pengguna dan kata sandi, MFA memerlukan kode autentikasi unik untuk mengakses 
+    layanan AWS
+
+Layanan dan sumber daya AWS dapat diakses dengan menggunakan AWS Management Console, AWS CLI, atau melalui SDK dan API. Untuk keamanan yang meningkat, sebaiknya aktifkan MFA.Dengan MFA, pengguna dan sistem harus memberikan token MFA—selain kredensial masuk biasa—sebelum mereka dapat mengakses layanan dan sumber daya AWS
+
+> IAM Otorisasi
+  - menetapkan izin dengan membuat kebijakan IAM
+  - izin menentukan sumber  daya dan operasi yang diizinkan:
+    - semua izin secara implisit ditolak secara default
+    - jika ada sesuatu yang ditolak secara eksplisit, berarti tidak pernah diizinkan
+
+Untuk menetapkan izin kepada pengguna, grup, atau peran, Anda harus membuatkebijakan IAM(atau menemukan kebijakan yang ada di akun). Tidak ada izin default. Semua tindakan dalam akun ditolak untuk pengguna secara default (pemblokiran implisit) kecuali tindakan tersebut diizinkan secara eksplisit. Tindakan apa pun yang tidak Anda izinkan secara eksplisit akan ditolak. Tindakan apa pun yang secara eksplisit Anda tolak akan selalu ditolak.
+
+> Kebijakan IAM
+  - kebijakan IAM adalah dokumen yang mendefinisikan izin
+    -memberikan kontrol akses ketat
+  - dua jenis kebijakan berbasis identitas dan berbasis sumber daya
+  - kebijakan berbasis identitas 
+    - pasang kebijakan pada entitas IAM apa pun
+      - pengguna IAM, grup IAM, atau IAM role
+    - kebijakan menentukan:
+      - tindakan yang dapat dilakukan oleh entitas
+      - tindakan yang mungkin tidak dapat dilakukan oleh entitas
+    - satu kebijakan dapat dilekatkan ke beberapa entitas
+    - satu entitas dapat memiliki beberapa kebijakan yang melekat
+ - kebijakan berbasis sumber daya
+   - terlampir ke sumber daya (seperti bucket S3)
+
+Kebijakan IAM adalah pernyataan resmi izin yang akan diberikan kepada entitas. Kebijakan dapat dilampirkan ke setiap entitas IAM. Entitas mencakup pengguna, grup, peran, atau sumber daya
+
+Terdapat dua jenis kebijakan IAM: Kebijakan berbasis identitasadalah kebijakan izin yang dapat Anda lampirkan pada pelaku (atau identitas), seperti pengguna, peran, atau grup IAM. Kebijakan ini mengontrol tindakan apa yang dapat dilakukan identitas, pada sumber daya apa, dan dalam kondisi apa.  
+
+> Kebijakan berbasis identitas dapat dikategorikan lebih lanjut sebagai:
+  - Kebijakan terkelola –Kebijakan berbasis identitas yang mandiri yang dapat Anda lampirkan pada 
+    beberapa pengguna, grup, dan peran dalam akun AWS Anda
+  - Kebijakan inline –Kebijakan yang Anda buat dan kelola, dan yang tertanam secara langsung dalam 
+    grup atau peran pengguna tunggal
+
+Kebijakan berbasis sumber daya adalah dokumen kebijakan JSON yang Anda lampirkan pada sumber daya, seperti bucket Amazon S3. Kebijakan ini mengatur tindakan apa yang dapat dilakukan pelaku tertentu pada sumber daya tersebut, dan dalam kondisi apa
+
+> Izin IAM
+
+Ketika IAM menentukan apakah izin diperbolehkan, pertama-tama IAM memeriksa keberadaan kebijakan penolakan eksplisit. Jika tidak ada penolakan eksplisit, IAM kemudian memeriksa kebijakan izin eksplisit yang berlaku. Jika keduanya tidak ada, IAM kembali ke default, yaitu memblokir akses. Proses ini disebut sebagai pemblokiran implisit. Pengguna akan diizinkan untuk mengambil tindakan hanya jika tindakan yang diminta tidak secara eksplisit ditolak dan secaraeksplisit diperbolehkan.
+
+Sulit untuk mengetahui apakah akses ke sumber daya akan diberikan kepada entitas IAM ketika Anda mengembangkan kebijakan IAM
+
+> Grup IAM
+
+Grup IAMadalah kumpulan pengguna IAM.Grup IAM menawarkan cara yang nyaman untuk menentukan izin untuk kumpulan pengguna, yang dapat mempermudah pengelolaan izin bagi para pengguna
+
+Karakteristik penting dari grup IAM:
+- Sebuah grup dapat berisi banyak pengguna, dan pengguna dapat menjadi milik beberapa grup.•Grup tidak dapat ditumpuk. Grup hanya dapat berisi pengguna, dan grup tidak dapat berisi grup lain.
+- Tidak ada grup default yang secara otomatis mencakup semua pengguna di akun AWS. Jika Anda ingin memiliki grup dengan semua pengguna akun di dalamnya, Anda perlu membuat grup dan menambahkan setiap pengguna baru ke dalamnya
+
+> IAM role
+
+IAM roleadalah identitas IAM yang dapat Anda buat di akun Anda yang memiliki izin khusus.IAM role mirip dengan pengguna IAMkarena ini juga merupakan AWS identity yang dapat Anda lampirkan kebijakan izinnya, dan izin tersebut menentukan apa yang dapat dan tidak dapat dilakukan oleh identitas tersebut di AWS. Namun, bukannya dikaitkan dengan satu orang secara unik, peran dapat dijalankan oleh siapa saja yang membutuhkannya. Peran tidak memiliki standar kredensial jangka panjang (sandi atau access key) yang terkait dengannya. Sebaliknya, bila Anda mengambil peran, peran menyediakan kredensial keamanan sementara untuk sesi peran Anda.
+
