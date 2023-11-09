@@ -160,5 +160,65 @@ Karakteristik penting dari grup IAM:
 
 > IAM role
 
-IAM roleadalah identitas IAM yang dapat Anda buat di akun Anda yang memiliki izin khusus.IAM role mirip dengan pengguna IAMkarena ini juga merupakan AWS identity yang dapat Anda lampirkan kebijakan izinnya, dan izin tersebut menentukan apa yang dapat dan tidak dapat dilakukan oleh identitas tersebut di AWS. Namun, bukannya dikaitkan dengan satu orang secara unik, peran dapat dijalankan oleh siapa saja yang membutuhkannya. Peran tidak memiliki standar kredensial jangka panjang (sandi atau access key) yang terkait dengannya. Sebaliknya, bila Anda mengambil peran, peran menyediakan kredensial keamanan sementara untuk sesi peran Anda.
+IAM role adalah identitas IAM yang dapat Anda buat di akun Anda yang memiliki izin khusus.IAM role mirip dengan pengguna IAMkarena ini juga merupakan AWS identity yang dapat Anda lampirkan kebijakan izinnya, dan izin tersebut menentukan apa yang dapat dan tidak dapat dilakukan oleh identitas tersebut di AWS. Namun, bukannya dikaitkan dengan satu orang secara unik, peran dapat dijalankan oleh siapa saja yang membutuhkannya. Peran tidak memiliki standar kredensial jangka panjang (sandi atau access key) yang terkait dengannya. Sebaliknya, bila Anda mengambil peran, peran menyediakan kredensial keamanan sementara untuk sesi peran Anda.
 
+#### Mengamankan  akun AWS baru
+
+> Mengamankan akun AWS baru: pengguna root akun
+
+Untuk berhenti menggunakan pengguna root akun, lakukan langkah-langkah berikut:
+- Ketika Anda masuk ke pengguna root akun, buat pengguna IAM untuk Anda sendiri dengan akses AWS 
+  Management Console diaktifkan (tetapi jangan lampirkan izin apa pun kepada pengguna). Simpan 
+  access key pengguna IAM jika diperlukan.
+- Berikutnya, buat grup IAM, beri nama (seperti FullAccess), dan lampirkan kebijakan IAM ke grup 
+  yang memberikan akses penuh ke setidaknya beberapa layanan yang akan Anda gunakan. Selanjutnya, 
+  tambahkan pengguna IAM ke grup.
+- Nonaktifkan dan hapus access key pengguna root akun Anda, jika ada.
+- Aktifkan kebijakan sandi untuk semua pengguna. Salin tautan masuk pengguna IAM dari halaman 
+  Dasbor IAM. Kemudian, keluar sebagai pengguna root akun.
+- Jelajahi tautan masuk pengguna IAM yang Anda salin, dan masuk ke akun dengan menggunakan 
+  kredensial pengguna IAM baru Anda. 6.Simpan kredensial pengguna root Anda di tempat yang aman
+
+> Mengamankan akun AWS baru: MFA
+
+- Pilihan untuk mengambil token MFA
+- Aplikasi yang kompatibel dengan MFA virtual: 
+  - Google Authenticator
+  - Authy Authenticator (aplikasi Windows phone).
+  - Perangkat kunci keamanan UZF
+- Sebagai contoh Yubikey
+  Opsi MFA perangkat keras:
+  - Key fob atau kartu display yang ditawarkan oleh Gemalto
+ 
+> Mengamankan akun AWS baru: AWS CloudTrail
+
+AWS CloudTrail adalah layanan yang mencatat semua permintaan API ke sumber daya di akun Anda
+
+> Mengamankan akun AWS baru: layanan tagihan
+
+Langkah yang direkomendasikan tambahan untuk mengamankan akun AWS baru adalah untuk mengaktifkan laporan penagihan, seperti Laporan Penggunaan dan Biaya AWS. Laporan tagihan memberikan informasi tentang penggunaan sumber daya AWS dan perkiraan biaya untuk penggunaan itu. AWS memberikan laporan kepada bucket Amazon S3 yang Anda tentukan dan AWS memperbarui laporan setidaknya sekali per hari
+
+#### Mengamankan Akun AWS baru
+
+> Mengamankan Akun
+
+- AWS Organizations
+AWS Organizations adalah layanan manajemen akun yang memungkinkan Anda mengonsolidasikan beberapa akun AWS ke sebuahorganisasiyang Anda buat dan kelola secara terpusat. Di sini, fokusnya adalah pada fitur keamanan yang disediakan AWS Organizations.
+
+Salah satu fitur keamanan yang berguna adalah bahwa Anda dapat mengelompokkan akun ke unit organisasi(OU) dan melekatkan kebijakan akses yang berbeda untuk setiap OU. Misalnya, jika Anda memiliki akun yang seharusnya hanya diizinkan untuk mengakses layanan AWS yang memenuhi persyaratan peraturan tertentu, Anda dapat menempatkan akun tersebut ke dalam satu OU. Anda kemudian dapat menentukan kebijakan yang memblokir akses OU ke layanan yang tidak memenuhi persyaratan peraturan tersebut, dan kemudian melekatkan kebijakan untuk OU
+
+-  AWS Organizations: Service control policies (SCP)
+SCP menawarkan kontrol pusat atas izin maksimum yang tersediauntuk semua akun di organisasi Anda, sehingga memungkinkan Anda memastikan bahwa akun Anda tetap berada dalam pedoman kontrol akses organisasi Anda
+
+SCP mirip dengan kebijakan izin IAMdan menggunakan sintaks yang hampir sama. Namun, SCP tidak pernah memberikan izin. Sebaliknya, SCP adalah kebijakan JSON yang menentukan izin maksimum untuk organisasi atau OU. Melekatkan SCP ke root organisasi atau unit organisasi (OU) mendefinisikan perlindungan untuk tindakan yang dapat dilakukan oleh akun di root organisasi atau OU. Namun, itu bukan pengganti untuk konfigurasi IAM yang dikelola dengan baik dalam tiap akun
+
+- AWS Key Management Service (AWS KMS)
+AWS Key Management Service (AWS KMS) adalah layanan yang memungkinkan Anda membuat dan mengelola kunci enkripsi, dan untuk mengontrol penggunaan enkripsi di berbagai layanan AWS dan aplikasi Anda. AWS KMS adalah layanan aman dan tangguh yang menggunakan modul keamanan perangkat keras (HSM) yang divalidasi di bawah Standar Pemrosesan Informasi Federal (FIPS) 140-2(atau sedang dalam proses divalidasi) untuk melindungi kunci Anda. AWS KMS juga terintegrasi dengan AWS CloudTrail guna menyediakan log untuk semua penggunaan kunci Anda untuk membantu memenuhi kebutuhan peraturan dan kepatuhan
+
+#### Mengamankan Data di AWS
+
+**Enkripsi data** adalah alat penting untuk digunakan ketika tujuan Anda adalah untuk melindungi data digital. Enkripsi data mengambil data yang dapat dibaca dan mengodekannya sehingga tidak dapat dibaca oleh siapa pun yang tidak memiliki akses ke kunci rahasia yang dapat digunakan untuk memecahkan kode itu. Jadi, bahkan jika penyerang mendapatkan akses ke data Anda, mereka tidak bisa melakukan apa pun
+
+**Data** saat istirahat mengacu pada data yang tersimpan secara fisik pada disk atau pita
+
+Anda dapat membuat sistem file terenkripsi pada AWS sehingga semua data dan metadata dienkripsi saat istirahat dengan menggunakan standar terbuka algoritma enkripsi Advanced Encryption Standard (AES)-256. Bila Anda menggunakan AWS KMS, enkripsi dan dekripsi ditangani secara otomatis dan transparan, sehingga Anda tidak perlu memodifikasi aplikasi Anda. Jika organisasi Anda tunduk pada kebijakan perusahaan atau peraturan yang memerlukan enkripsi data dan metadata saat istirahat, AWS menyarankan untuk mengaktifkan enkripsi pada semua layanan yang menyimpan data Anda. Anda dapat mengenkripsi data yang disimpan dalam layanan yang didukung oleh AWS KMS
