@@ -309,16 +309,9 @@ Untuk mengoptimalkan biaya, Anda perlu mempertimbangkan empat pendorong yang kon
 
 ### Layanan Kontainer
 
-✍️ Add a mini tutorial to encourage the reader to get started learning something new about the cloud.
-
 ### Pengantar AWS Lambda
 
-
-
-
 ### Pengantar AWS Elastic Beanstalk
-
-
 
 ## ☁️ knowledge
 
