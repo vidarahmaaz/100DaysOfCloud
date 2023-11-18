@@ -222,3 +222,6 @@ AWS Key Management Service (AWS KMS) adalah layanan yang memungkinkan Anda membu
 **Data** saat istirahat mengacu pada data yang tersimpan secara fisik pada disk atau pita
 
 Anda dapat membuat sistem file terenkripsi pada AWS sehingga semua data dan metadata dienkripsi saat istirahat dengan menggunakan standar terbuka algoritma enkripsi Advanced Encryption Standard (AES)-256. Bila Anda menggunakan AWS KMS, enkripsi dan dekripsi ditangani secara otomatis dan transparan, sehingga Anda tidak perlu memodifikasi aplikasi Anda. Jika organisasi Anda tunduk pada kebijakan perusahaan atau peraturan yang memerlukan enkripsi data dan metadata saat istirahat, AWS menyarankan untuk mengaktifkan enkripsi pada semua layanan yang menyimpan data Anda. Anda dapat mengenkripsi data yang disimpan dalam layanan yang didukung oleh AWS KMS
+
+## ☁️ knowledge
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/538aab61-cf6f-40fb-b044-ad4417a63776)
