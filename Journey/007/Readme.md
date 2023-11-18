@@ -309,9 +309,145 @@ Untuk mengoptimalkan biaya, Anda perlu mempertimbangkan empat pendorong yang kon
 
 ### Layanan Kontainer
 
+**Kontainer** merupakan metode virtualisasi sistem operasi yang memungkinkan Anda menjalankan aplikasi dan dependensinya dalam proses yang sumber dayanya terisolasi
+
+> dasar-dasar kontainer
+
+  - kontainer adalah metode virtualisasi sistem operasi
+  - manfaat:
+    - dapat diulang,
+    - lingkungan mandiri,
+    - perangkat lunak berjalan sama di lingkungan yang berbeda,
+      - laptop developer, pengujian, produksi
+    - lebih cepat dimulai, dan dihentikan atau diakhiri dibandingkan mesin virtual
+
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/413af1e9-d8d0-4ee9-bfb5-770d6ea249be)
+
+**What Is Docker?**
+  **Docker** adalah platform perangkat lunak yang mengemas perangkat lunak (seperti aplikasi) ke dalam kontainer
+
+Docker paling baik digunakan sebagai solusi bila Anda ingin:
+- Menstandardisasi lingkungan
+- Mengurangi konflik antara tumpukan bahasa dan versi
+- Menggunakan kontainer sebagai layanan
+- Menjalankan layanan mikro menggunakan kode deployment terstandardisasi
+- Memerlukan portabilitas untuk pemrosesan data
+
+> **Amazon Elastic Container Service (Amazon ECS)**
+
+  layanan manajemen kontainer berkinerja tinggi dan sangat mudah diskalakan yang mendukung kontainer Docker. Amazon ECS memudahkan Anda menjalankan aplikasi di kluster Amazon EC2 instance yang terkelola
+
+Fitur penting Amazon ECS meliputi kemampuan untuk:
+- Meluncurkan hingga puluhan ribu kontainer Docker dalam hitungan detik
+- Memantaudeployment kontainer
+- Mengelolastatus kluster yang menjalankan kontainer
+- Menjadwalkankontainer menggunakan penjadwal bawaan atau penjadwal pihak ketiga (misal, 
+  Apache Mesos atau Blox)
+
+> **APA ITU KUBERNETES?**
+
+  - Kubernetes adalah perangkat lunak sumber terbuka untuk orkestrasi kontainer
+    - men deploy dan mengelola aplikasi kontainer dalam skla besar
+    - peralatan yang sama dapat digunakan di on premise dan di cloud
+  - Melengkapi Docker
+    - Docker memungkinkan anda menjalankan beberapa kontainer pada satu host OS
+    - Kubernetes mengatur beberapa host Docker (node)
+  - Mengautomasi
+    - penyediaan kontainer,
+    - jaringan,
+    - distribusi muatan,
+    - penskalaan
+   
+> **Amazon Elastic Kubernetes SErvice (Amazon EKS)**
+
+  layanan **Kubernetes** terkelola yang memudahkan Anda untuk menjalankan Kubernetes di AWS tanpa perlu menginstal, mengoperasikan, dan memelihara bidang kontrol Kubernetes Anda sendiri. Layanan ini tersertifikasi kompatibel dengan Kubernetes, sehingga aplikasi yang berjalan di hulu Kubernetes kompatibel dengan Amazon EKS
+
+
+> **Amazon Elastic Container Registry (Amazon ECR)**
+
+  merupakan registri kontainer Docker yang dikelola sepenuhnya yang memudahkan developer 
+  menyimpan, mengelola, dan men-deploy gambar kontainer Docker. Ini terintegrasi dengan 
+  Amazon ECS, sehingga Anda dapat menyimpan, menjalankan, dan mengelola gambar kontainer 
+  untuk aplikasi yang berjalan di Amazon ECS
+  
 ### Pengantar AWS Lambda
 
+   **AWS Lambda** adalah layanan komputasi nirserver yang digerakkan event. Lambda 
+   memungkinkan Anda menjalankan kode tanpa menyediakan atau mengelola server. Anda 
+   membuatfungsi Lambda, yaitu sumber daya AWS berisi kode yang Anda unggah. Anda 
+   kemudian mengatur fungsi Lambda untuk dipicu, baik secara terjadwal atau dalam 
+   merespons suatu peristiwa. Kode Anda hanya berjalan ketika dipicu
+
+> **Manfaat Lambda**
+
+  - mendukung banyak bahasa pemrograman,
+  - administrasi yang sepenuhnya otomatis,
+  - toleransi kesalahan terintegrasi,
+  - mendukung orkestrasi berbagai fungsi,
+  - harga bayar per penggunaan
+
+> **sumber peristiwa AWS Lambda**
+
+  Suatu sumber event adalah layanan AWS atau aplikasi buatan developer yang memproduksi 
+  event yang memicu jalannya fungsi AWS Lambda
+
+  sumber peristiwa:
+  - amazon S3
+  - amazon DynamoDB
+  - amazon simple notification (amazon sns)
+  - amazon simple queue (amazon sqs)
+  - amazon API Gateway
+  - application load balancer
+
+  Jika Anda menggunakan AWS Management Console untuk membuat fungsi Lambda, Anda perlu 
+  memberinya nama lebih dulu. Kemudian, tentukan:
+  - Lingkungan runtime yang akan digunakan fungsi tersebut (misalnya, salah satu versi 
+    Python atau Node.js)
+  - Peran eksekusi (untuk memberikan izin IAM ke fungsi agar dapat berinteraksi dengan 
+    layanan AWS lain yang diperlukan)
+
+  Selanjutnya, setelah engeklik Buat Fungsi, konfigurasikan fungsinya. Konfigurasinya 
+  meliputi:
+  - Tambahkan pemicu(tentukan salah satu sumber event yang tersedia dari slide sebelumnya)
+  - Tambahkan kode fungsi Anda (gunakan editor kode yang disediakan atau unggah file 
+    berisi kode)
+  - Tentukan memoridalam satuan MB untuk dialokasikan ke fungsi Anda (128 MB sampai 3.008 
+    MB)
+  - Secara opsional, tentukan variabel lingkungan, deskripsi, batas waktu, virtual 
+    private cloud (VPC) tertentu untuk menjalankan fungsi, tag yang ingin Anda gunakan, 
+    dan pengaturan lainnya. Detail lengkap ada di dokumentasiKonfigurasi Fungsi AWS Lambda
+
+> **Batas AWS Lambda**
+
+  batas lunak per wilayah:
+  - eksekusi bersamaan = 1.000
+  - penyimpanan fungsi dan lapisan = 75 GB
+
+  Batas maksimal untuk fungsi individu:
+  - alokasi memori fungsi maksimum = 3.008 MB
+  - batas waktu fungsi = 15  menit
+  - ukuran paket deployment = 250 MB unzip, termasuk lapisan
+    
 ### Pengantar AWS Elastic Beanstalk
+
+   **AWS Elastic Beanstalk** adalah opsi layanan komputasi AWS lain. Ini adalah platform 
+   as a service (atau PaaS) yang memfasilitasi deployment, penskalaan, dan manajemen 
+   cepat untuk aplikasi web dan layanan Anda.
+
+> **Deployment AWS Elastic Beanstalk**
+  - mendukung aplikasi web yang ditulis untuk platform umum
+    - Java, NET, PHP, Node, js, Python, Ruby, Go, dan Docker
+  - unggah kode anda
+    - Elastic Beanstalk secara otomatis menangani deployment
+    - men-deploy pada server seperti Apache, NGINX, Passanger, Puma, dan Microsoft 
+      Internet Information Services (NIS)
+
+> **Manfaat Elastic Beanstalk**
+
+  - Dapat mulai digunakan dengan cepat dan sederhana
+  - Produktivitas Developer
+  - Sulit untuk dilampaui
+  - Kontrol sumber daya penuh
 
 ## ☁️ knowledge
 
