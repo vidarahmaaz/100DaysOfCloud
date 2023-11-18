@@ -247,3 +247,11 @@ AWS Global Infrastructure memiliki beberapa fitur berharga:
   - AWS Well-Architected Tool menyediakan bantuan dalam meninjau dan meningkatkan beban 
     kerja Anda
   - AWS CloudTrail melacak aktivitas pengguna dan penggunaan API
+
+## ☁️ knowledge
+- chapter 2
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/1c673160-b721-4687-8e76-39f3b7dcf84f)
+
+- chapter 3
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/fda8973a-04d0-4735-8ed1-f996f9988218)
+
