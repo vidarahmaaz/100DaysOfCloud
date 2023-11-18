@@ -450,6 +450,7 @@ Fitur penting Amazon ECS meliputi kemampuan untuk:
   - Kontrol sumber daya penuh
 
 ## ☁️ knowledge
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/36e196bd-2463-49e5-90b4-fe478cd94daa)
 
 
 
