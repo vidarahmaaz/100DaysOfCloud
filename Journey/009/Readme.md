@@ -62,6 +62,20 @@ Penggunaan volume Amazon EBS meliputi:
     - meningkatkan kapasitas
     - mengubah ke jenis yang berbeda
 
+> Amazon EBS: Volume, IOPS, dan harga
+  - Volume
+    - volume amazon EBS bertahan secara independen dari instans
+    - semua jenis volume dikenakan biaya dengan jumlah yang disediakan per bulan
+  - IOPS
+    - SSD tujuan umum:
+      - dikenakan biaya dengan jumlah yang disediakan dalam GB per bulan sampai 
+        penyimpanan dilepaskan
+    - Magnetis:
+      - dikenakan biaya dengan jumlah permintaan ke volume
+    - SSD Provesioned IOPS
+      - dikenakan biaya dengan jumlah yang disediakan di IOPS (dikalikan dengan presentase 
+        hari yang disediakan untuk bulan tersebut) 
+
 ### Use Case
 
 ### Cloud Research
