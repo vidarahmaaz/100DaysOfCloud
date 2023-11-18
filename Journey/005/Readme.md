@@ -297,8 +297,10 @@ Amazon Route 53 mendukung beberapa jenis kebijakan perutean, yang menentukan bag
   Permintaan HTTP(S)
   - dibebankan untuk jumlah permintaan HTTP(S)
   Permintaan pembatalan validasi
-  - tidak ada biaa tambahan untuk 1.000 jalur pertama yang diminta untuk pembatalan validasi 
-    setiap bulan
-  SSL kustom IP khusus
-  - 600 USD per bulan untuk tiap sertifikat SSL kustom yang diasosiasikan dengan satu atau lebih 
-    distribusi CloudFront menggunakan IP khusus dari dukungan sertifikasi SSL 
+  - tidak ada biaa tambahan untuk 1.000 jalur pertama yang diminta untuk pembatalan 
+    validasi setiap bulan SSL kustom IP khusus
+  - 600 USD per bulan untuk tiap sertifikat SSL kustom yang diasosiasikan dengan satu 
+    atau lebih distribusi CloudFront menggunakan IP khusus dari dukungan sertifikasi SSL 
+
+## ☁️ knowledge
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/1c287325-15b7-4995-a1b7-80becbd2f381)
