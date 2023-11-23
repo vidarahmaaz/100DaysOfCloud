@@ -161,5 +161,43 @@ Sekarang Anda akan mempertimbangkan beberapa kasus penggunaan untuk Amazon S3:
       
 ### Amazon Elastic File System (Amazon EFS)
 
+Amazon EFS adalah layanan terkelola penuh yang memudahkan penyiapan dan penskalaan penyimpanan file di AWS Cloud. Anda dapat menggunakan Amazon EFS untuk membangun sistem file untuk big data dan analitik, alur kerja pemrosesan media, pengelolaan konten, penayangan web, dan direktori rumah. Anda dapat membuat sistem file yang dapat diakses ke instans Amazon EC2 melalui antarmuka sistem file (menggunakan API I/O file sistem operasi standar). Sistem file ini mendukung semantik akses sistem file penuh, seperti konsistensi yang kuat dan penguncian file 
+
+> sumber daya Amazon EFS
+  - sistem file
+    - ID Subnet
+    - security group
+    - satu atau lebih per sistem file
+    - buat dalam subnet VPC
+    - satu per Availability Zone
+    - harus berada di VPC yang sama
+  - tanda
+    - pasangan kunci nilai
+   
+### Amazon S3 Glacier
+
+Amazon S3 Glacier adalah layanan penyimpanan cloud yang aman, tahan lama, dan berbiaya sangat rendah untuk pengarsipan data dan pencadangan jangka panjang
+
+Pengambilan data yang disimpan di Amazon S3 Glacier membutuhkan waktu beberapa jam, itulah mengapa 
+fungsinya sempurna untuk pengarsipan.
+Ada tiga istilah utama Amazon S3 Glacier yang harus Anda pahami:
+- Arsip-Tiap objek (misalnya foto, video, file, atau dokumen yang Anda simpan di Amazon S3 
+  Glacier. Ini adalah unit penyimpanan dasar di Amazon S3 Glacier. Tiap arsip memiliki ID uniknya 
+  sendiri dan dapat memiliki deskripsi
+- Vault–Kontainer untuk menyimpan arsip. Saat Anda membuat vault, Anda akan menentukan nama vault 
+  dan Wilayah untuk menemukan vault
+- Kebijakan akses vault–Menentukan siapa saja yang dapat dan 
+  tidak dapat mengakses data yang disimpan dalam vault, dan operasi apa yang dapat dilakukan dan 
+  tidak dapat dilakukan pengguna. Satu kebijakan izin akses vault dapat dibuat bagi tiap vault 
+  agar dapat mengelola izin akses untuk vault tersebut. Anda juga dapat menggunakan kebijakan 
+  vault lock untuk memastikan bahwa vault tidak dapat diubah. Setiap vault dapat memiliki satu 
+  kebijakan vault lock dan satu kebijakan kunci vault yang dilampirkan padanya
+
+tiga opsi untuk mengambil data dengan berbagai waktu dan biaya akses
+- Pengambilan dipercepat biasanya tersedia dalam waktu 1–5 menit (biaya tertinggi)
+- Pengambilan standar biasanya selesai dalam waktu 3–5 jam (lebih lama dari opsi dipercepat, lebih 
+  cepat dari opsi massal)
+- Pengambilan massal biasanya selesai dalam 5–12 jam (biaya paling rendah).
+    
 ## ☁️ knowledge
 
