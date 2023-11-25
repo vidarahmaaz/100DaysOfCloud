@@ -200,4 +200,5 @@ tiga opsi untuk mengambil data dengan berbagai waktu dan biaya akses
 - Pengambilan massal biasanya selesai dalam 5–12 jam (biaya paling rendah).
     
 ## ☁️ knowledge
+![image](https://github.com/vidarahmaaz/100DaysOfCloud/assets/140806084/f79bd665-a387-4bdf-bf2a-b4ea37a54a72)
 
